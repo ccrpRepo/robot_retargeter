@@ -84,6 +84,24 @@ subject to their own license). To use the SMPL-X pipeline
 > Note: Large robot mesh/texture files (`*.stl`, `*.obj`, `*.dae`, `*.png`,
 > `*.mtl`) are stored directly in this repository, so cloning may take longer.
 
+### Motion datasets (AMASS / ACCAD)
+
+The files in `dataset/ACCAD/` are a small set of open-source sample motions from
+the **ACCAD** subset of the AMASS dataset (SMPL-X `.npz` format), provided only
+to quickly try out the pipeline. If you need more motion data, download it
+yourself from the AMASS website:
+
+- AMASS website (register to download): https://amass.is.tue.mpg.de/
+- ACCAD subset download page: https://amass.is.tue.mpg.de/download.php
+  (select **ACCAD** in the list and download the `SMPL-X N` (neutral) format)
+
+After downloading, unzip and place the `.npz` motion files under any directory
+in `dataset/` (e.g. `dataset/ACCAD/`), then point `SMPL_MOTION_FILE` to the
+desired file.
+
+> By downloading you agree to the AMASS / ACCAD license terms; the data may only
+> be used as permitted by those licenses.
+
 ## Usage
 
 The `bash/` directory provides two one-command pipeline scripts that
@@ -101,7 +119,7 @@ Customize via environment variables:
 
 | Variable | Default | Description |
 |---|---|---|
-| `SMPL_MOTION_FILE` | `dataset/ACCAD/Extended_1_stageii.npz` | Input SMPL-X motion file |
+| `SMPL_MOTION_FILE` | `dataset/ACCAD/Form_1_stageii.npz` | Input SMPL-X motion file |
 | `VIS_ROBOTS` | `g1 h2 t800 r1` | Target robot list (space-separated, multiple allowed) |
 | `KEYPOINTS_NAME` | derived from motion file name | Keypoints / output motion name |
 | `SOURCE_FPS` | `120` | Source motion frame rate |
@@ -141,7 +159,7 @@ Direct video link:
 Example:
 
 ```bash
-VIS_ROBOTS="g1 h2 t800 r1" \
+VIS_ROBOTS="jaka_pi h2 t800 r1" \
 ROBOT_MOTION_FILE="dataset/lafan1_g1/dance1_subject1.csv" \
 ORIGIN_ROBOT="g1" \
 ./bash/retarget_from_robot.sh

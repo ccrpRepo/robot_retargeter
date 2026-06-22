@@ -68,6 +68,17 @@ SMPL-X 模型文件**不包含**在本仓库中（受其自身许可协议约束
 
 > 注意：较大的机器人 mesh / 纹理文件（`*.stl`、`*.obj`、`*.dae`、`*.png`、`*.mtl`）已直接存储在仓库中，因此首次克隆耗时可能更长。
 
+### 动作数据集（AMASS / ACCAD）
+
+`dataset/ACCAD/` 中提供的是 AMASS 数据集里 **ACCAD** 子集的少量开源示例动作（SMPL-X `.npz` 格式），仅用于快速体验流水线。若需要更多动作数据，请自行从 AMASS 官网下载：
+
+- AMASS 官网（注册后下载）：https://amass.is.tue.mpg.de/
+- ACCAD 子集下载页：https://amass.is.tue.mpg.de/download.php （在列表中选择 **ACCAD**，下载 `SMPL-X N`（neutral）格式）
+
+下载后解压，将 `.npz` 动作文件放到 `dataset/` 下任意目录（例如 `dataset/ACCAD/`），再通过 `SMPL_MOTION_FILE` 指向对应文件即可。
+
+> 下载即表示你同意 AMASS / ACCAD 的许可协议，相关数据仅可用于其许可允许的用途。
+
 ## 运行
 
 `bash/` 目录提供了两个一键流水线脚本，会自动完成「关键映射点生成 → 重定向 → 可视化」三步。脚本默认使用当前激活环境中的 `python`，也可用 `PYTHON_BIN` 指定解释器。
@@ -82,7 +93,7 @@ SMPL-X 模型文件**不包含**在本仓库中（受其自身许可协议约束
 
 | 变量 | 默认值 | 说明 |
 |---|---|---|
-| `SMPL_MOTION_FILE` | `dataset/ACCAD/Extended_1_stageii.npz` | 输入的 SMPL-X 动作文件 |
+| `SMPL_MOTION_FILE` | `dataset/ACCAD/Form_1_stageii.npz` | 输入的 SMPL-X 动作文件 |
 | `VIS_ROBOTS` | `g1 h2 t800 r1` | 目标机器人列表（空格分隔，支持多个） |
 | `KEYPOINTS_NAME` | 由动作文件名自动推导 | 关键点 / 输出动作名称 |
 | `SOURCE_FPS` | `120` | 源动作帧率 |
@@ -92,7 +103,7 @@ SMPL-X 模型文件**不包含**在本仓库中（受其自身许可协议约束
 示例（自定义机器人与动作文件）：
 
 ```bash
-VIS_ROBOTS="g1 hightorque_hi h2 t800" \
+VIS_ROBOTS="g1 jaka_pi h2 t800" \
 SMPL_MOTION_FILE="dataset/ACCAD/Form_1_stageii.npz" \
 ./bash/retarget_from_smplx.sh
 ```
@@ -122,7 +133,7 @@ SMPL_MOTION_FILE="dataset/ACCAD/Form_1_stageii.npz" \
 示例：
 
 ```bash
-VIS_ROBOTS="h2 t800 jaka_pi" \
+VIS_ROBOTS="jaka_pi h2 t800 r1" \
 ROBOT_MOTION_FILE="dataset/lafan1_g1/dance1_subject1.csv" \
 ORIGIN_ROBOT="g1" \
 ./bash/retarget_from_robot.sh
