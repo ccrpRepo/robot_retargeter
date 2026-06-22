@@ -15,7 +15,7 @@ Usage:
 	# Use a specific motion file and playback fps
 	python scripts/smpl_replay.py \
 		--motion_file dataset/ACCAD/Form_1_stageii.npz \
-		--robot-config config/robot/jaka_pi.yaml \
+		--robot-config config/robot/g1.yaml \
 		--fps 120
 """
 

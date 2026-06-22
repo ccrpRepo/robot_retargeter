@@ -133,8 +133,8 @@ SMPL_MOTION_FILE="dataset/ACCAD/Form_1_stageii.npz" \
 示例：
 
 ```bash
-VIS_ROBOTS="jaka_pi h2 t800 r1" \
-ROBOT_MOTION_FILE="dataset/lafan1_g1/dance1_subject1.csv" \
+VIS_ROBOTS="jaka_pi h2 t800 agibot_x2" \
+ROBOT_MOTION_FILE="dataset/lafan1_g1/dance1_subject2.csv" \
 ORIGIN_ROBOT="g1" \
 ./bash/retarget_from_robot.sh
 ```

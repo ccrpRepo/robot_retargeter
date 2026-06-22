@@ -33,7 +33,7 @@ contact_links: [left_foot_end_link, left_toe_link,
 
 contact_vel_calculate_window: 6
 contact_vel_threshold: 0.5
-contact_height_threshold: 0.025
+contact_height_threshold: 0.05
 contact_height_lpf_alpha: 0.15
 contact_pos_fixed_factor: 15.0
 
