@@ -1,0 +1,147 @@
+<mujoco model="skeleton">
+  <compiler angle="radian" meshdir="meshes/"/>
+
+  <worldbody>
+    <!-- Hip -->
+    <body name="hips" pos="0 0 1">
+      <geom name="hips" type="sphere" size="0.05" rgba="0.5  0  0 0.5" contype="0" conaffinity="0"/>
+      <joint name="hips_joint" type="free"/>
+    </body>
+
+    <body name="hips_mean" pos="0 0 1">
+      <geom name="hips_mean" type="sphere" size="0.05" rgba="0.0  0  0.8 0.5" contype="0" conaffinity="0"/>
+      <joint name="hips_mean_joint" type="free"/>
+    </body>
+    
+    <!-- Left Leg -->
+    <body name="left_up_leg" pos="0 0 1">
+      <geom name="left_up_leg" type="capsule" pos="0 0 0" size="0.05" fromto="0 0 0 0 -0.4 0" rgba="0.5  0  0.1 0.5" contype="0" conaffinity="0"/>
+      <!-- <geom name="left_up_leg_s" type="sphere" pos="0 0 0" size="0.035" rgba="0  0  0.8 1" contype="0" conaffinity="0"/> -->
+      <joint name="left_up_leg_joint" type="free"/>
+    </body>
+    <body name="left_leg" pos="0 0 1">
+      <geom name="left_leg" type="capsule" pos="0 0 0" size="0.05" fromto="0 0 0 0 -0.3 0" rgba="0.5  0  0.1 0.5" contype="0" conaffinity="0"/>
+      <joint name="left_leg_joint" type="free"/>
+    </body>
+    <body name="left_foot" pos="0 0 1">
+      <geom name="left_foot" type="capsule" pos="0 0 0" size="0.05" fromto="0 0 0 0 -0.054 0.125" rgba="0.5  0  0.1 0.5"/>
+      <joint name="left_foot_joint" type="free"/>
+      <body name = "left_foot_end" pos="0 -0.055 0">
+      <geom name="left_foot_end" type="sphere" pos="0 0 0" size="0.04" rgba="0.5  0  0.1 0.5" contype="0" conaffinity="0"/>
+      </body>
+    </body>
+    <body name="left_toe" pos="0 0 1">
+      <geom  name="left_toe" type="capsule" pos="0 0 0" size="0.05" fromto="0 0 0 0 0 0.04" rgba="0.5  0  0.1 0.5" contype="0" conaffinity="0"/>
+      <joint name="left_toe_joint" type="free"/>
+    </body>
+
+    <!-- Right Leg -->
+    <body name="right_up_leg" pos="0 0 1">
+      <geom name="right_up_leg" type="capsule" pos="0 0 0" size="0.05" fromto="0 0 0 0 -0.4 0" rgba="0.5  0  0.1 0.5" contype="0" conaffinity="0"/>
+      <joint name="right_up_leg_joint" type="free"/>
+    </body>
+    <body name="right_leg" pos="0 0 1">
+      <geom name="right_leg" type="capsule" pos="0 0 0" size="0.05" fromto="0 0 0 0 -0.3 0" rgba="0.5  0  0.1 0.5" contype="0" conaffinity="0"/>
+      <joint name="right_leg_joint" type="free"/>
+    </body>
+    <body name="right_foot" pos="0 0 1">
+      <geom name="right_foot" type="capsule" pos="0 0 0" size="0.05" fromto="0 0 0 0 -0.054 0.125" rgba="0.5  0  0.1 0.5" contype="0" conaffinity="0"/>
+      <joint name="right_foot_joint" type="free"/>
+      <body name = "right_foot_end" pos="0 -0.055 0">
+      <geom name="right_foot_end" type="sphere" pos="0 0 0" size="0.04" rgba="0.5  0  0.1 0.5" contype="0" conaffinity="0"/>
+      </body>
+    </body>
+    <body name="right_toe" pos="0 0 1">
+      <geom name="right_toe" type="capsule" pos="0 0 0" size="0.05" fromto="0 0 0 0 0 0.04" rgba="0.5  0  0.1 0.5" contype="0" conaffinity="0"/>
+      <joint name="right_toe_joint" type="free"/>
+    </body>
+
+    <!-- Spine -->
+    <body name="spine1" pos="0 0 1">
+      <geom name="spine1" type="box" pos="0 0.015 0.0" quat="1 0 0 0" size="0.085 0.04 0.03" rgba="0.5  0  0.1 0.5" contype="0" conaffinity="0"/>
+      <joint name="spine1_joint" type="free"/>
+    </body>
+    <body name="spine2" pos="0 0 1">
+      <geom name="spine2" type="box" pos="0 0.02 0.005" quat="0.999 0.035 0 0" size="0.095 0.05 0.035" rgba="0.5  0  0.1 0.5" contype="0" conaffinity="0"/>
+      <joint name="spine2_joint" type="free"/>
+    </body>
+    <body name="chest" pos="0 0 1">
+      <geom name="chest" type="box" pos="0 0.025 0.01" quat="0.998 0.052 0 0" size="0.115 0.055 0.045" rgba="0.5  0  0.1  1" contype="0" conaffinity="0"/>
+      <joint name="chest_joint" type="free"/>
+    </body>
+    <body name="neck" pos="0 0 1">
+      <geom name="neck" type="capsule" pos="0 0 0" size="0.035" fromto="0 0 0 0 0.13 0" rgba="0.5  0  0.1 0.5" contype="0" conaffinity="0"/>
+      <!-- <geom name="neck_s" type="sphere" pos="0 0 0" size="0.035" rgba="0  0  0.8 1" contype="0" conaffinity="0"/> -->
+      <joint name="neck_joint" type="free"/>
+    </body>
+    <body name="head" pos="0 0 1">
+      <geom name="head" type="sphere" pos="0 0.05 0" size="0.1" rgba="0.5  0  0.1 0.5" contype="0" conaffinity="0"/>
+      <joint name="head_joint" type="free"/>
+    </body>
+
+    <body name="shoulder_mean" pos="0 0 1">
+      <geom name="shoulder_mean" type="sphere" size="0.05" rgba="0.0  0  0.8 0.5" contype="0" conaffinity="0"/>
+      <joint name="shoulder_mean_joint" type="free"/>
+    </body>
+
+    <!-- Left arm -->
+    <body name="left_shoulder" pos="0 0 1">
+      <geom name="left_shoulder" type="capsule" pos="0 0 0" size="0.04" fromto="0 0 0 0.05 0 0" rgba="0.5  0  0.1 0.5" contype="0" conaffinity="0"/>
+      <geom name="left_shoulder_s" type="sphere" pos="0 0 0" size="0.035" rgba="0  0  0.8 1" contype="0" conaffinity="0"/>
+      <joint name="left_shoulder_joint" type="free"/>
+    </body>
+    <body name="left_arm" pos="0 0 1">
+      <geom name="left_arm" type="capsule" pos="0 0 0" size="0.04" fromto="0 0 0 0.2 0  0" rgba="0.5  0  0.1 0.5" contype="0" conaffinity="0"/>
+      <!-- <geom name="left_arm_s" type="sphere" pos="0 0 0" size="0.035" rgba="0  0  0.8 1" contype="0" conaffinity="0"/> -->
+      <joint name="left_arm_joint" type="free"/>
+    </body>
+    <body name="left_fore_arm" pos="0 0 1">
+      <geom name="left_fore_arm_s" type="sphere" pos="0 0 0" size="0.035" rgba="0  0  0.8 1" contype="0" conaffinity="0"/>
+      <geom name="left_fore_arm" type="capsule" pos="0 0 0" size="0.04" fromto="0 0 0 0.2 0  0" rgba="0.5  0  0.1 0.5" contype="0" conaffinity="0"/>
+      <joint name="left_fore_arm_joint" type="free"/>
+    </body>
+    <body name="left_hand" pos="0 0 1">
+      <geom name="left_hand" type="box" pos="0.06 0 0" size="0.05 0.02 0.05" rgba="0.5  0  0.1 0.5" contype="0" conaffinity="0"/>
+      <joint name="left_hand_joint" type="free"/>
+    </body>
+
+    <!-- Right arm -->
+    <body name="right_shoulder" pos="0 0 1">
+      <geom name="right_shoulder" type="capsule" pos="0 0 0" size="0.04" fromto="0 0 0 -0.05 0 0" rgba="0.5  0  0.1 0.5" contype="0" conaffinity="0"/>
+      <!-- <geom name="right_shoulder_s" type="sphere" pos="0 0 0" size="0.035" rgba="0  0  0.8 1" contype="0" conaffinity="0"/> -->
+      <joint name="right_shoulder_joint" type="free"/>
+    </body>
+    <body name="right_arm" pos="0 0 1">
+      <geom name="right_arm" type="capsule" pos="0 0 0" size="0.04" fromto="0 0 0 -0.2 0  0" rgba="0.5  0  0.1 0.5" contype="0" conaffinity="0"/>
+      <!-- <geom name="right_arm_s" type="sphere" pos="0 0 0" size="0.035" rgba="0  0  0.8 1" contype="0" conaffinity="0"/> -->
+      <joint name="right_arm_joint" type="free"/>
+    </body>
+    <body name="right_fore_arm" pos="0 0 1">
+      <geom name="right_fore_arm" type="capsule" pos="0 0 0" size="0.04" fromto="0 0 0 -0.2 0  0" rgba="0.5  0  0.1 0.5" contype="0" conaffinity="0"/>
+      <joint name="right_fore_arm_joint" type="free"/>
+    </body>
+    <body name="right_hand" pos="0 0 1">
+      <geom name="right_hand" type="box" pos="-0.06 0 0" size="0.05 0.02 0.05" rgba="0.5  0  0.1 0.5" contype="0" conaffinity="0"/>
+      <joint name="right_hand_joint" type="free"/>
+    </body>
+
+
+  </worldbody>
+
+  <!-- setup scene -->
+  <statistic center="1.0 0.7 1.0" extent="0.8"/>
+  <visual>
+    <headlight diffuse="0.6 0.6 0.6" ambient="0.1 0.1 0.1" specular="0.9 0.9 0.9"/>
+    <rgba haze="0.15 0.25 0.35 1"/>
+    <global azimuth="-140" elevation="-20"/>
+  </visual>
+  <asset>
+    <texture type="skybox" builtin="flat" rgb1="0 0 0" rgb2="0 0 0" width="512" height="3072"/>
+    <texture type="2d" name="groundplane" builtin="checker" mark="edge" rgb1="0.2 0.3 0.4" rgb2="0.1 0.2 0.3" markrgb="0.8 0.8 0.8" width="300" height="300"/>
+    <material name="groundplane" texture="groundplane" texuniform="true" texrepeat="5 5" reflectance="0.2"/>
+  </asset>
+  <worldbody>
+    <light pos="1 0 3.5" dir="0 0 -1" directional="true"/>
+    <geom name="floor" size="0 0 0.05" type="plane" material="groundplane" friction="0.75 0.02 0.001"/>
+  </worldbody>
+</mujoco>

@@ -1,0 +1,148 @@
+robot_xml_path: "asset/robot/pnd_adam_lite/adam_lite.xml"
+verbose: True
+render_debug: True
+keypoints_path: "output_data/keypoints/pnd_adam/Form_1_stageii_keypoints.pkl"
+joints_limit_offset_degrees:
+  kneePitch_: [5.0, 0.0]
+  elbow_: [10.0, 0.0]
+
+robot_links:
+  left_hip: [pelvis, left_hip_sphere]
+  left_thigh: [left_hip_sphere, shinLeft]
+  left_calf: [shinLeft, toeLeft]
+
+  right_hip: [pelvis, right_hip_sphere]
+  right_thigh: [right_hip_sphere, shinRight]
+  right_calf: [shinRight, toeRight]
+
+  neck: [pelvis, neck_sphere]
+  head: [neck_sphere, head_sphere]
+
+  left_shoulder: [neck_sphere, shoulderRollLeft]
+  left_arm: [shoulderRollLeft, elbowLeft]
+  left_fore_arm: [elbowLeft, left_hand]
+
+  right_shoulder: [neck_sphere, shoulderRollRight]
+  right_arm: [shoulderRollRight, elbowRight]
+  right_fore_arm: [elbowRight, right_hand]
+
+contact_links: [left_foot_end_link, left_toe_link, 
+                right_foot_end_link, right_toe_link, 
+                left_hand, right_hand]
+
+knee_angle_offset_degrees: 15.0
+
+ik_match_table: {
+  "hips_mean": ["pelvis", 100, 10],  
+
+  "left_hip": ["left_hip_sphere", 30, 3],
+  "left_thigh": ["shinLeft", 0.0, 1.0],
+  "left_calf": ["toeLeft", 30, 5],
+
+  "right_hip": ["right_hip_sphere", 30, 3],
+  "right_thigh": ["shinRight", 0.0, 1.0],
+  "right_calf": ["toeRight", 30, 5],
+
+  # "head": ["head_pitch_link", 0.0, 0.5],
+
+  "left_shoulder": ["shoulderRollLeft", 30, 3],
+  "left_arm": ["elbowLeft", 10.0, 3],
+  "left_fore_arm": ["left_hand", 10, 1],
+
+  "right_shoulder": ["shoulderRollRight", 30, 3],
+  "right_arm": ["elbowRight", 10.0, 3],
+  "right_fore_arm": ["right_hand", 10, 1]
+
+}
+
+key_frame_config:
+  hips_mean:
+    offset_deg_xyz: [0.0, 0.0, 0.0]
+    axis_map_cols:
+      x: [0.0, 0.0, 1.0]
+      y: [1.0, 0.0, 0.0]
+      z: [0.0, 1.0, 0.0]
+  left_up_leg:
+    offset_deg_xyz: [0.0, 0.0, 0.0]
+    axis_map_cols:
+      x: [0.0, 0.0, 1.0]
+      y: [1.0, 0.0, 0.0]
+      z: [0.0, 1.0, 0.0]
+  left_leg:
+    offset_deg_xyz: [0.0, 0.0, 0.0]
+    axis_map_cols:
+      x: [0.0, 0.0, 1.0]
+      y: [1.0, 0.0, 0.0]
+      z: [0.0, 1.0, 0.0]
+  left_foot:
+    offset_deg_xyz: [0.0, 0.0, 0.0]
+    axis_map_cols:
+      x: [0.0, 0.0, 1.0]
+      y: [1.0, 0.0, 0.0]
+      z: [0.0, 1.0, 0.0]
+  right_up_leg:
+    offset_deg_xyz: [0.0, 0.0, 0.0]
+    axis_map_cols:
+      x: [0.0, 0.0, 1.0]
+      y: [1.0, 0.0, 0.0]
+      z: [0.0, 1.0, 0.0]
+  right_leg:
+    offset_deg_xyz: [0.0, 0.0, 0.0]
+    axis_map_cols:
+      x: [0.0, 0.0, 1.0]
+      y: [1.0, 0.0, 0.0]
+      z: [0.0, 1.0, 0.0]
+  right_foot:
+    offset_deg_xyz: [0.0, 0.0, 0.0]
+    axis_map_cols:
+      x: [0.0, 0.0, 1.0]
+      y: [1.0, 0.0, 0.0]
+      z: [0.0, 1.0, 0.0]
+  shoulder_mean:
+    offset_deg_xyz: [0.0, 0.0, 0.0]
+    axis_map_cols:
+      x: [0.0, 0.0, 1.0]
+      y: [1.0, 0.0, 0.0]
+      z: [0.0, 1.0, 0.0]
+  left_arm:
+    offset_deg_xyz: [0.0, 0.0, 0.0]
+    axis_map_cols:
+      x: [0.0, 0.0, 1.0]
+      y: [0.0, 1.0, 0.0]
+      z: [-1.0, 0.0, 0.0]
+  left_fore_arm:
+    offset_deg_xyz: [0.0, 0.0, 0.0]
+    axis_map_cols:
+      x: [0.0, 0.0, 1.0]
+      y: [0.0, 1.0, 0.0]
+      z: [-1.0, 0.0, 0.0]
+  left_hand:
+    offset_deg_xyz: [0.0, 0.0, 0.0]
+    axis_map_cols:
+      x: [0.0, 0.0, 1.0]
+      y: [0.0, 1.0, 0.0]
+      z: [-1.0, 0.0, 0.0]
+  right_arm:
+    offset_deg_xyz: [0.0, 0.0, 0.0]
+    axis_map_cols:
+      x: [0.0, 0.0, 1.0]
+      y: [0.0, -1.0, 0.0]
+      z: [1.0, 0.0, 0.0]
+  right_fore_arm:
+    offset_deg_xyz: [0.0, 0.0, 0.0]
+    axis_map_cols:
+      x: [0.0, 0.0, 1.0]
+      y: [0.0, -1.0, 0.0]
+      z: [1.0, 0.0, 0.0]
+  right_hand:
+    offset_deg_xyz: [0.0, 0.0, 0.0]
+    axis_map_cols:
+      x: [0.0, 0.0, 1.0]
+      y: [0.0, -1.0, 0.0]
+      z: [1.0, 0.0, 0.0]
+  head:
+    offset_deg_xyz: [0.0, 0.0, 0.0]
+    axis_map_cols:
+      x: [0.0, 0.0, 1.0]
+      y: [1.0, 0.0, 0.0]
+      z: [0.0, 1.0, 0.0]

@@ -1,0 +1,182 @@
+<mujoco model="engineai_robotics">
+    <compiler angle="radian" discardvisual="false" autolimits="true" eulerseq="zyx"/>
+    <option timestep="0.002" integrator="implicitfast" tolerance="1e-10"/>
+
+    <default>
+        <default class="biped">
+            <default class="collision">
+                <geom group="3" contype="1" conaffinity="1" friction="1.0 0.005 0.0001" rgba="0.804 0.361 0.031 0.5"/>
+                <default class="collision_head">
+                    <geom type="sphere" size="0.09" pos="0.01 0.0 0.11" rgba="0.804 0.361 0.031 0.5"/>
+                </default>
+
+                <default class="collision_base_upper_box">
+                    <geom type="box" size="0.085 0.096 0.135" pos="-0.008 0.0 0.15" rgba="0.804 0.361 0.031 0.5"/>
+                    <!-- If accurate torso model needed, use original mesh as follows -->
+                    <!-- <geom type="mesh" mesh="LINK_TORSO_YAW" rgba="0.804 0.361 0.031 0.5"/> -->
+                </default>
+
+                <default class="collision_base_lower_box">
+                    <geom type="sphere" size="0.085" pos="0.02 0.0 -0.02" rgba="0.804 0.361 0.031 0.5"/>
+                </default>
+
+                <default class="collision_left_foot">
+                    <geom type="box" size="0.102292353 0.053555 0.01" pos="0.0170 0.00166 -0.03631" rgba="0.804 0.361 0.031 0.5"/>
+                </default>
+
+                <default class="collision_left_foot_toe">
+                    <geom type="box" size="0.028 0.047805 0.01" quat="0.9741537 0 -0.2258863 0" pos="0.139 0.0 -0.0235" rgba="0.804 0.361 0.031 0.5"/>
+                </default>
+
+                <default class="collision_right_foot">
+                    <geom type="box" size="0.102292353 0.053555 0.01" pos="0.0170 -0.00166 -0.03631" rgba="0.804 0.361 0.031 0.5"/>
+                </default>
+
+                <default class="collision_right_foot_toe">
+                    <geom type="box" size="0.028 0.047805 0.01" quat="0.9741537 0 -0.2258863 0" pos="0.139 0.0 -0.0235" rgba="0.804 0.361 0.031 0.5"/>
+                </default>
+
+                <default class="collision_left_elbow_end">
+                    <geom type="sphere" size="0.05" pos="0.03 -0.02 -0.14" rgba="0.804 0.361 0.031 0.5" />
+                </default>
+                <default class="collision_left_elbow_end1">
+                    <geom type="box" size="0.02 0.02 0.05" quat="1 0 0 0" pos="0 0 -0.02" rgba="0.804 0.361 0.031 0.5"/>
+                </default>
+
+                <default class="collision_elbow">
+                    <geom type="sphere" size="0.045" pos="0.0 0.0 -0.0" rgba="0.804 0.361 0.031 0.5"/>
+                </default>
+
+                <default class="collision_right_elbow_end">
+                    <geom type="sphere" size="0.05" pos="0.03 0.02 -0.14" rgba="0.804 0.361 0.031 0.5"/>
+                </default>
+                <default class="collision_right_elbow_end1">
+                    <geom type="box" size="0.02 0.02 0.05" quat="1 0 0 0" pos="0 0 -0.02" rgba="0.804 0.361 0.031 0.5"/>
+                </default>
+
+                <default class="collision_hip_left">
+                    <geom type="cylinder" size="0.046 0.06" pos="0.007 0.05 -0.012" quat="1 0 1 0" rgba="0.804 0.361 0.031 0.5"/>
+                </default>
+
+                <default class="collision_hiproll_left">
+                    <geom type="cylinder" size="0.065 0.015" pos="-0.032 0.0 -0.07" quat="1 0 0 0" rgba="0.804 0.361 0.031 0.5"/>
+                </default>
+
+                <default class="collision_hip_yaw_left">
+                    <geom type="cylinder" size="0.06 0.06" pos="0 0 -0.08" quat="1 0 0 0" rgba="0.804 0.361 0.031 0.5"/>
+                </default>
+
+                <default class="collision_hip_right">
+                    <geom type="cylinder" size="0.046 0.06" pos="0.007 -0.05 -0.012" quat="1 0 1 0" rgba="0.804 0.361 0.031 0.5"/>
+                </default>
+
+                <default class="collision_hiproll_right">
+                    <geom type="cylinder" size="0.065 0.015" pos="-0.032 0.0 -0.07" quat="1 0 0 0" rgba="0.804 0.361 0.031 0.5"/>
+                </default>
+
+                <default class="collision_hip_yaw_right">
+                    <geom type="cylinder" size="0.06 0.06" pos="0 0 -0.08" quat="1 0 0 0" rgba="0.804 0.361 0.031 0.5"/>
+                </default>
+
+                <default class="collision_knee">
+                    <geom type="cylinder" size="0.065 0.04" pos="0 0 0" quat="1 1 0 0" rgba="0.804 0.361 0.031 0.5"/>
+                </default>
+
+                <default class="collision_knee1">
+                    <geom type="box" size="0.05 0.04 0.1" quat="1 0 0.1 0" pos="-0.02 0 -0.20" rgba="0.804 0.361 0.031 0.5"/>
+                </default>
+
+                <default class="torso_yaw">
+                    <geom type="box" size="0.075 0.085 0.04" quat="1 0 0 0" pos="0 0 0.04" rgba="0.804 0.361 0.031 0.5"/>
+                </default>
+                <default class="torso_yaw1">
+                    <geom type="box" size="0.1 0.11 0.11" quat="1 0 0 0" pos="0 0 0.16" rgba="0.804 0.361 0.031 0.5"/>
+                </default>
+
+                <default class="shoulder_roll">
+                    <geom type="cylinder" size="0.05 0.05" pos="0.039 0 0" quat="1 0 1.0 0" rgba="0.804 0.361 0.031 0.5"/>
+                </default>
+                <default class="shoulder_roll1_left">
+                    <geom type="cylinder" size="0.04 0.016" pos="0.04 0.02 -0.068" quat="1 0 0 0" rgba="0.804 0.361 0.031 0.5"/>
+                </default>
+                <default class="shoulder_roll1_right">
+                    <geom type="cylinder" size="0.04 0.016" pos="0.04 -0.02 -0.068" quat="1 0 0 0" rgba="0.804 0.361 0.031 0.5"/>
+                </default>
+
+                <default class="shoulder_yaw">
+                    <geom type="cylinder" size="0.04 0.016" pos="0 0 -0.038" quat="1 0 0 0" rgba="0.804 0.361 0.031 0.5"/>
+                </default>
+
+                <default class="elbow_pitch_left">
+                    <geom type="cylinder" size="0.035 0.035" pos="0 0.007 -0.105" quat="1 1 0 0" rgba="0.804 0.361 0.031 0.5"/>
+                </default>
+                <default class="elbow_pitch_right">
+                    <geom type="cylinder" size="0.035 0.035" pos="0 -0.007 -0.105" quat="1 1 0 0" rgba="0.804 0.361 0.031 0.5"/>
+                </default>
+
+                <default class="elbow_yaw_left">
+                    <geom type="cylinder" size="0.03 0.035" pos="0.01 0.008 -0.05" quat="1 0 -0.1 0" rgba="0.804 0.361 0.031 0.5"/>
+                </default>
+                <default class="elbow_yaw_right">
+                    <geom type="cylinder" size="0.03 0.035" pos="0.01 -0.008 -0.05" quat="1 0 -0.1 0" rgba="0.804 0.361 0.031 0.5"/>
+                </default>
+            </default>
+
+            <default class="visual">
+                <geom contype="0" conaffinity="0" group="2"/>
+            </default>
+
+            <default class="joint">
+                <joint damping="0.6" frictionloss="0.8"/>
+            </default>
+
+        </default>
+    </default>
+
+    <asset>
+        <include file="assets.xml"/>
+    </asset>
+
+    <worldbody>
+        <light name="spotlight" mode="targetbodycom" target="LINK_BASE" pos="0 -1 2"/>
+        <body name="LINK_BASE" pos="0 0 0.82">
+            <inertial pos="0.01525750 -0.00001621 -0.02333111" mass="4.08640035" fullinertia="0.02021593 0.01531282 0.01216285 -0.00000120 -0.00037784 -0.00000295"/>
+            <geom type="mesh" rgba="0.75294 0.75294 0.75294 1" mesh="LINK_BASE" material="LINK_BASE" class="visual"/>
+            <geom class="collision_base_lower_box"/>
+            <site name="base" pos="0 0 0"/>
+            <site name="imu" pos="0.02311 0 -0.09631"/>
+            <freejoint/>
+
+            <include file="serial_links.xml"/>
+            <body name="hips_sphere" pos="0.01541 0 -0.074">
+                <geom type="sphere" size="0.035" contype="0" conaffinity="0" group="1" density="0" rgba="0.6 0.6 0.6 0"/>
+            </body>
+        </body>
+    </worldbody>
+
+    <include file="serial_actuators.xml"/>
+    <include file="serial_sensors.xml"/>
+
+    <!-- Comments this keyframe when fixed base used -->
+    <keyframe>
+        <key name="floating_base_homing" qpos="0 0 0.82 1 0 0 0 0 0 -0.12 0.24 -0.12 0 0 0 -0.12 0.24 -0.12 0 0 0 0 0 0 0 0 0 0 0 0 0"/>
+    </keyframe>
+
+    <!-- setup scene -->
+  <!-- <statistic center="1.0 0.7 1.0" extent="0.8"/>
+  <visual>
+    <headlight diffuse="0.6 0.6 0.6" ambient="0.1 0.1 0.1" specular="0.9 0.9 0.9"/>
+    <rgba haze="0.15 0.25 0.35 1"/>
+    <global azimuth="-140" elevation="-20"/>
+  </visual>
+  <asset>
+    <texture type="skybox" builtin="flat" rgb1="0 0 0" rgb2="0 0 0" width="512" height="3072"/>
+    <texture type="2d" name="groundplane" builtin="checker" mark="edge" rgb1="0.2 0.3 0.4" rgb2="0.1 0.2 0.3" markrgb="0.8 0.8 0.8" width="300" height="300"/>
+    <material name="groundplane" texture="groundplane" texuniform="true" texrepeat="5 5" reflectance="0.2"/>
+  </asset>
+  <worldbody>
+    <light pos="1 0 3.5" dir="0 0 -1" directional="true"/>
+    <geom name="floor" size="0 0 0.05" type="plane" material="groundplane" friction="0.75 0.02 0.001"/>
+  </worldbody> -->
+
+</mujoco>

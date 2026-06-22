@@ -1,0 +1,14 @@
+# Runtime dependencies for robot_retargeter.
+# Version floors verified in the `mjlab` conda environment (Python 3.11).
+# Install with: pip install -r requirements.txt
+
+mujoco>=3.9.0
+mink>=1.1.1
+numpy>=2.0,<3.0
+torch>=2.0
+PyYAML>=6.0
+scipy>=1.13
+tqdm>=4.66
+glfw>=2.7
+smplx>=0.1.28
+trimesh>=4.0

@@ -1,0 +1,153 @@
+robot_xml_path: "asset/robot/booster_t1/T1_serial.xml"
+verbose: True
+render_debug: False
+keypoints_path: "output_data/keypoints/booster_t1/dance1_subject2_from_g1_keypoints.pkl"
+joints_limit_offset_degrees:
+  _Knee_Pitch: [10.0, 0.0]
+  _Elbow_Pitch: [10.0, 0.0]
+knee_angle_offset_degrees: 15.0
+
+robot_links:
+  left_hip: [Waist, left_hip_sphere]
+  left_thigh: [left_hip_sphere, Shank_Left]
+  left_calf: [Shank_Left, left_foot_link]
+
+  right_hip: [Waist, right_hip_sphere]
+  right_thigh: [right_hip_sphere, Shank_Right]
+  right_calf: [Shank_Right, right_foot_link]
+
+  neck: [Waist, neck_sphere]
+  head: [neck_sphere, H2]
+
+  left_shoulder: [neck_sphere, AL2]
+  left_arm: [AL2, left_hand_link]
+  left_fore_arm: [left_hand_link, left_hand]
+
+  right_shoulder: [neck_sphere, AR2]
+  right_arm: [AR2, right_hand_link]
+  right_fore_arm: [right_hand_link, right_hand]
+
+contact_links: [left_foot_end_link, left_toe_link, 
+                right_foot_end_link, right_toe_link, 
+                left_hand_link, right_hand_link]
+
+contact_vel_calculate_window: 6
+contact_vel_threshold: 0.5
+contact_height_threshold: 0.025
+contact_height_lpf_alpha: 0.15
+contact_pos_fixed_factor: 15.0
+
+ik_match_table: {
+  "hips_mean": ["Waist", 100, 0],  
+
+  "left_hip": ["left_hip_sphere", 30, 3],
+  "left_thigh": ["Shank_Left", 0.0, 3.0],
+  "left_calf": ["left_foot_link", 30, 3],
+
+  "right_hip": ["right_hip_sphere", 30, 3],
+  "right_thigh": ["Shank_Right", 0.0, 3.0],
+  "right_calf": ["right_foot_link", 30, 3],
+
+  "head": ["H2", 0.0, 0.5],
+
+  "left_shoulder": ["AL2", 30, 3],
+  "left_arm": ["left_hand_link", 10.0, 3],
+  "left_fore_arm": ["left_hand", 10, 1],
+
+  "right_shoulder": ["AR2", 30, 3],
+  "right_arm": ["right_hand_link", 10.0, 3],
+  "right_fore_arm": ["right_hand", 10, 1]
+
+}
+
+key_frame_config:
+  hips_mean:
+    offset_deg_xyz: [0.0, 0.0, 0.0]
+    axis_map_cols:
+      x: [0.0, 0.0, 1.0]
+      y: [1.0, 0.0, 0.0]
+      z: [0.0, 1.0, 0.0]
+  left_up_leg:
+    offset_deg_xyz: [0.0, 0.0, 0.0]
+    axis_map_cols:
+      x: [0.0, 0.0, 1.0]
+      y: [1.0, 0.0, 0.0]
+      z: [0.0, 1.0, 0.0]
+  left_leg:
+    offset_deg_xyz: [0.0, 0.0, 0.0]
+    axis_map_cols:
+      x: [0.0, 0.0, 1.0]
+      y: [1.0, 0.0, 0.0]
+      z: [0.0, 1.0, 0.0]
+  left_foot:
+    offset_deg_xyz: [0.0, 0.0, 0.0]
+    axis_map_cols:
+      x: [0.0, 0.0, 1.0]
+      y: [1.0, 0.0, 0.0]
+      z: [0.0, 1.0, 0.0]
+  right_up_leg:
+    offset_deg_xyz: [0.0, 0.0, 0.0]
+    axis_map_cols:
+      x: [0.0, 0.0, 1.0]
+      y: [1.0, 0.0, 0.0]
+      z: [0.0, 1.0, 0.0]
+  right_leg:
+    offset_deg_xyz: [0.0, 0.0, 0.0]
+    axis_map_cols:
+      x: [0.0, 0.0, 1.0]
+      y: [1.0, 0.0, 0.0]
+      z: [0.0, 1.0, 0.0]
+  right_foot:
+    offset_deg_xyz: [0.0, 0.0, 0.0]
+    axis_map_cols:
+      x: [0.0, 0.0, 1.0]
+      y: [1.0, 0.0, 0.0]
+      z: [0.0, 1.0, 0.0]
+  shoulder_mean:
+    offset_deg_xyz: [0.0, 0.0, 0.0]
+    axis_map_cols:
+      x: [0.0, 0.0, 1.0]
+      y: [1.0, 0.0, 0.0]
+      z: [0.0, 1.0, 0.0]
+  left_arm:
+    offset_deg_xyz: [0.0, 0.0, 0.0]
+    axis_map_cols:
+      x: [0.0, 0.0, 1.0]
+      y: [1.0, 0.0, 0.0]
+      z: [0.0, 1.0, 0.0]
+  left_fore_arm:
+    offset_deg_xyz: [0.0, 0.0, 0.0]
+    axis_map_cols:
+      x: [0.0, 0.0, 1.0]
+      y: [1.0, 0.0, 0.0]
+      z: [0.0, 1.0, 0.0]
+  left_hand:
+    offset_deg_xyz: [0.0, 0.0, 0.0]
+    axis_map_cols:
+      x: [0.0, 0.0, 1.0]
+      y: [1.0, 0.0, 0.0]
+      z: [0.0, 1.0, 0.0]
+  right_arm:
+    offset_deg_xyz: [0.0, 0.0, 0.0]
+    axis_map_cols:
+      x: [0.0, 0.0, 1.0]
+      y: [1.0, 0.0, 0.0]
+      z: [0.0, 1.0, 0.0]
+  right_fore_arm:
+    offset_deg_xyz: [0.0, 0.0, 0.0]
+    axis_map_cols:
+      x: [0.0, 0.0, 1.0]
+      y: [1.0, 0.0, 0.0]
+      z: [0.0, 1.0, 0.0]
+  right_hand:
+    offset_deg_xyz: [0.0, 0.0, 0.0]
+    axis_map_cols:
+      x: [0.0, 0.0, 1.0]
+      y: [1.0, 0.0, 0.0]
+      z: [0.0, 1.0, 0.0]
+  head:
+    offset_deg_xyz: [0.0, 0.0, 0.0]
+    axis_map_cols:
+      x: [0.0, 0.0, 1.0]
+      y: [1.0, 0.0, 0.0]
+      z: [0.0, 1.0, 0.0]

@@ -1,0 +1,29 @@
+
+skeleton_links:
+  left_hip: [hips_mean, left_up_leg]
+  left_thigh: [left_up_leg, left_leg]
+  left_calf: [left_leg, left_foot]
+  right_hip: [hips_mean, right_up_leg]
+  right_thigh: [right_up_leg, right_leg]
+  right_calf: [right_leg, right_foot]
+
+  neck: [hips_mean, shoulder_mean]
+  head: [shoulder_mean, head]
+
+  left_shoulder: [shoulder_mean, left_arm]
+  left_arm: [left_arm, left_fore_arm]
+  left_fore_arm: [left_fore_arm, left_hand]
+
+  right_shoulder: [shoulder_mean, right_arm]
+  right_arm: [right_arm, right_fore_arm]
+  right_fore_arm: [right_fore_arm, right_hand]
+
+
+contact_links: [left_foot_end, left_toe, 
+                right_foot_end, right_toe, 
+                left_hand, right_hand]
+
+contact_vel_calculate_window: 6
+contact_vel_threshold: 0.5
+contact_height_threshold: 0.05
+contact_height_lpf_alpha: 0.2
