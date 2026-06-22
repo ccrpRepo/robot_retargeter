@@ -159,9 +159,11 @@ Direct video link:
 Example:
 
 ```bash
-VIS_ROBOTS="jaka_pi h2 t800 r1" \
-ROBOT_MOTION_FILE="dataset/lafan1_g1/dance1_subject1.csv" \
+VIS_ROBOTS="jaka_pi h2 t800 pnd_adam" \
+ROBOT_MOTION_FILE="dataset/bones_g1/grab_walk_ff_180_001__A550_M.csv" \
 ORIGIN_ROBOT="g1" \
+SOURCE_FPS=120 \
+RENDER_FPS=30 \
 ./bash/retarget_from_robot.sh
 ```
 
