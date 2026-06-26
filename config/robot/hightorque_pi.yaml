@@ -1,0 +1,155 @@
+robot_xml_path: "asset/robot/pi_plus_24dof/xml/pi_plus_20dof.xml"
+verbose: True
+render_debug: False
+keypoints_path: "output_data/keypoints/hightorque_hi/dance1_subject2_from_g1_keypoints.pkl"
+joints_limit_offset_degrees:
+  calf_joint: [10.0, 0.0]
+  elbow_joint: [20.0, 0.0]
+knee_angle_offset_degrees: 15.0
+
+robot_links:
+  left_hip: [hips_sphere, l_hip_roll_link]
+  left_thigh: [l_hip_roll_link, l_calf_link]
+  left_calf: [l_calf_link, l_ankle_roll_link]
+
+  right_hip: [hips_sphere, r_hip_roll_link]
+  right_thigh: [r_hip_roll_link, r_calf_link]
+  right_calf: [r_calf_link, r_ankle_roll_link]
+
+  neck: [hips_sphere, neck_sphere]
+  head: [neck_sphere, head_sphere]
+
+  left_shoulder: [neck_sphere, l_shoulder_roll_link]
+  left_arm: [l_shoulder_roll_link, l_elbow_link]
+  left_fore_arm: [l_elbow_link, left_hand]
+
+  right_shoulder: [neck_sphere, r_shoulder_roll_link]
+  right_arm: [r_shoulder_roll_link, r_elbow_link]
+  right_fore_arm: [r_elbow_link, right_hand]
+
+contact_links: [left_foot_end_link, left_toe_link, 
+                right_foot_end_link, right_toe_link, 
+                left_hand, right_hand]
+
+contact_vel_calculate_window: 6
+contact_vel_threshold: 0.5
+contact_height_threshold: 0.025
+contact_height_lpf_alpha: 0.15
+contact_pos_fixed_factor: 15.0
+
+
+ik_match_table: {
+  "hips_mean": ["hips_sphere", 100, 0],  
+
+  "left_hip": ["l_hip_roll_link", 30, 3],
+  "left_thigh": ["l_calf_link", 0.0, 3.0],
+  "left_calf": ["l_ankle_roll_link", 30, 3],
+
+    "right_hip": ["r_hip_roll_link", 30, 3],
+  "right_thigh": ["r_calf_link", 0.0, 3.0],
+  "right_calf": ["r_ankle_roll_link", 30, 3],
+
+  # "head": ["head_sphere", 0.0, 1],
+
+  "left_shoulder": ["l_shoulder_roll_link", 30, 3],
+  "left_arm": ["l_elbow_link", 10.0, 3],
+  # "left_fore_arm": ["left_hand", 10, 1],
+
+  "right_shoulder": ["r_shoulder_roll_link", 30, 3],
+  "right_arm": ["r_elbow_link", 10.0, 3],
+  # "right_fore_arm": ["right_hand", 10, 1]
+
+}
+
+key_frame_config:
+  hips_mean:
+    offset_deg_xyz: [0.0, 0.0, 0.0]
+    axis_map_cols:
+      x: [0.0, 0.0, 1.0]
+      y: [1.0, 0.0, 0.0]
+      z: [0.0, 1.0, 0.0]
+  left_up_leg:
+    offset_deg_xyz: [0.0, 0.0, 0.0]
+    axis_map_cols:
+      x: [0.0, 0.0, 1.0]
+      y: [1.0, 0.0, 0.0]
+      z: [0.0, 1.0, 0.0]
+  left_leg:
+    offset_deg_xyz: [0.0, 0.0, 0.0]
+    axis_map_cols:
+      x: [0.0, 0.0, 1.0]
+      y: [1.0, 0.0, 0.0]
+      z: [0.0, 1.0, 0.0]
+  left_foot:
+    offset_deg_xyz: [0.0, 0.0, 0.0]
+    axis_map_cols:
+      x: [0.0, 0.0, 1.0]
+      y: [1.0, 0.0, 0.0]
+      z: [0.0, 1.0, 0.0]
+  right_up_leg:
+    offset_deg_xyz: [0.0, 0.0, 0.0]
+    axis_map_cols:
+      x: [0.0, 0.0, 1.0]
+      y: [1.0, 0.0, 0.0]
+      z: [0.0, 1.0, 0.0]
+  right_leg:
+    offset_deg_xyz: [0.0, 0.0, 0.0]
+    axis_map_cols:
+      x: [0.0, 0.0, 1.0]
+      y: [1.0, 0.0, 0.0]
+      z: [0.0, 1.0, 0.0]
+  right_foot:
+    offset_deg_xyz: [0.0, 0.0, 0.0]
+    axis_map_cols:
+      x: [0.0, 0.0, 1.0]
+      y: [1.0, 0.0, 0.0]
+      z: [0.0, 1.0, 0.0]
+  shoulder_mean:
+    offset_deg_xyz: [0.0, 0.0, 0.0]
+    axis_map_cols:
+      x: [0.0, 0.0, 1.0]
+      y: [1.0, 0.0, 0.0]
+      z: [0.0, 1.0, 0.0]
+  left_arm:
+    offset_deg_xyz: [0.0, 0.0, 0.0]
+    axis_map_cols:
+      x: [0.0, 0.0, 1.0]
+      y: [0.0, 1.0, 0.0]
+      z: [-1.0, 0.0, 0.0]
+  left_fore_arm:
+    offset_deg_xyz: [0.0, 0.0, 0.0]
+    axis_map_cols:
+      x: [0.0, 0.0, 1.0]
+      y: [0.0, 1.0, 0.0]
+      z: [-1.0, 0.0, 0.0]
+  left_hand:
+    offset_deg_xyz: [0.0, 0.0, 0.0]
+    axis_map_cols:
+      x: [0.0, 0.0, 1.0]
+      y: [0.0, 1.0, 0.0]
+      z: [-1.0, 0.0, 0.0]
+  right_arm:
+    offset_deg_xyz: [0.0, 0.0, 0.0]
+    axis_map_cols:
+      x: [0.0, 0.0, 1.0]
+      y: [0.0, -1.0, 0.0]
+      z: [1.0, 0.0, 0.0]
+  right_fore_arm:
+    offset_deg_xyz: [0.0, 0.0, 0.0]
+    axis_map_cols:
+      x: [0.0, 0.0, 1.0]
+      y: [0.0, -1.0, 0.0]
+      z: [1.0, 0.0, 0.0]
+  right_hand:
+    offset_deg_xyz: [0.0, 0.0, 0.0]
+    axis_map_cols:
+      x: [0.0, 0.0, 1.0]
+      y: [0.0, -1.0, 0.0]
+      z: [1.0, 0.0, 0.0]
+  head:
+    offset_deg_xyz: [0.0, 0.0, 0.0]
+    axis_map_cols:
+      x: [0.0, 0.0, 1.0]
+      y: [1.0, 0.0, 0.0]
+      z: [0.0, 1.0, 0.0]
+
